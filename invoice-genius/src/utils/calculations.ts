@@ -51,6 +51,7 @@ export const processInvoiceData = (formData: InvoiceFormData): Omit<Invoice, 'id
     total,
     tokenAmount: formData.tokenAmount,
     remainingAmount,
-    dueDate: formData.dueDate
+    dueDate: formData.dueDate,
+    hsnCode: formData.hsnCode
   };
 }; 
