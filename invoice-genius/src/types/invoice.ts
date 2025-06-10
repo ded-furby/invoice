@@ -3,6 +3,7 @@ export interface Company {
   address: string;
   email: string;
   phone: string;
+ 
 }
 
 export interface Client {
@@ -36,6 +37,7 @@ export interface Invoice {
   remainingAmount: number;
   createdAt: string;
   dueDate: string;
+  hsnCode: string;
 }
 
 export interface InvoiceFormData {
@@ -47,4 +49,5 @@ export interface InvoiceFormData {
   discountRate: number;
   tokenAmount: number;
   dueDate: string;
+  hsnCode: string;
 } 
