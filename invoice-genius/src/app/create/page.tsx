@@ -47,7 +47,8 @@ export default function CreateInvoicePage() {
     taxRate: 0,
     discountRate: 0,
     tokenAmount: 0,
-    dueDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] // 30 days from now
+    dueDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days from now
+    hsnCode: ''
   });
 
   const updateCompany = (field: keyof Company, value: string) => {
@@ -158,6 +159,27 @@ export default function CreateInvoicePage() {
                   value={formData.dueDate}
                   onChange={(e) => setFormData(prev => ({ ...prev, dueDate: e.target.value }))}
                 />
+              </div>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  HSN Code *
+                </label>
+                <input
+                  type="text"
+                  required
+                  pattern="[0-9]{8}"
+                  maxLength="8"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  value={formData.hsnCode}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, ''); // Only allow digits
+                    if (value.length <= 8) {
+                      setFormData(prev => ({ ...prev, hsnCode: value }));
+                    }
+                  }}
+                  placeholder="Enter 8-digit HSN code"
+                />
+                <p className="text-sm text-gray-500 mt-1">Enter an 8-digit numeric HSN (Harmonized System of Nomenclature) code</p>
               </div>
             </div>
           </div>
