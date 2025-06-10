@@ -129,6 +129,7 @@ export default function InvoicePreviewPage() {
               <div className="text-gray-300">
                 <div><strong>Date:</strong> {formatDate(invoice.createdAt)}</div>
                 <div><strong>Due Date:</strong> {formatDate(invoice.dueDate)}</div>
+                <div><strong>HSN Code:</strong> {invoice.hsnCode}</div>
               </div>
             </div>
           </div>
